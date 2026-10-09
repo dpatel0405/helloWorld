@@ -2,55 +2,49 @@
 /* Overall page styling */
 body {
     background-color: #f5f5f5;
-    font-family: Arial, sans-serif;
     margin: 40px;
     color: #333333;
 }
 
-/* Style all paragraphs */
+/* Style for all paragraphs */
 p {
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 15px;
+    font-size: 18px;
+    margin: 15px;
 }
 
-/* Style all level two headers */
+/* Style for all level two headers */
 h2 {
     color: #990000;
-    border-bottom: 2px solid #990000;
-    padding-bottom: 5px;
+    padding: 5px;
 }
 
-/* Style all tables */
+/* Style for the table */
 table, td {
-    border: 1px solid #990000;
+    border: 2px solid #999000;
 }
-
 table {
     border-collapse: collapse;
-    margin-bottom: 20px;
+    margin: 20px;
 }
-
 td {
     padding: 10px;
 }
 
-/* Style the third paragraph using its ID */
+/* Style third paragraph using ID */
 p#special-one {
-    color: #990000;
+    color: #990990;
     font-weight: bold;
 }
 
-/* Style the page title using a class */
+/* Style heading using class */
 .page-title {
     color: white;
     background-color: #990000;
-    text-align: center;
     padding: 20px;
 }
 
-/* Style the image using the logo class */
+/* Style image using class */
 .logo {
-    width: 300px;
+    width: 350px;
     height: 75px;
 }
