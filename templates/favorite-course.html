@@ -5,6 +5,5 @@
 {% block page_head %}Favorite Course{% endblock %}
 
 {% block page_content %}
-    {# Reads subject and course_number from the URL query string #}
     <p>You entered your favorite course as: {{ request.args.get('subject', '') }}{{ request.args.get('course_number', '') }}</p>
 {% endblock %}
