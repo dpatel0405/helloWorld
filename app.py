@@ -18,8 +18,6 @@ def about():
 def css():
     return render_template('about-css.html')
 
-from flask import Flask, render_template, request
-
 @app.route('/favorite-course')
 def favorite_course():
     return render_template('favorite-course.html')
