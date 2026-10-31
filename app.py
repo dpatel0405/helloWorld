@@ -3,9 +3,11 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 from models import db, Student, Major
 from datetime import datetime as dt
 
-basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
+
+os.makedirs(app.instance_path, exist_ok=True)
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(app.instance_path, 'university.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'beyond_course_scope'
@@ -46,12 +48,13 @@ def student_create():
     elif request.method == 'POST':
         first_name = request.form['first_name']
         last_name = request.form['last_name']
+        email = request.form['email']
         major_id = request.form['major_id']
 
         birth_date = request.form['birth_date']
         is_honors = True if 'is_honors' in request.form else False
 
-        student = Student(first_name=first_name, last_name=last_name, major_id=major_id,
+        student = Student(first_name=first_name, last_name=last_name, email=email, major_id=major_id,
                           birth_date=dt.strptime(birth_date, '%Y-%m-%d'), is_honors=is_honors)
         db.session.add(student)
         db.session.commit()
@@ -82,8 +85,9 @@ def student_edit(student_id):
         if student:
             student.first_name = request.form['first_name']
             student.last_name = request.form['last_name']
+            student.email = request.form['email']
             student.major_id = request.form['major_id']
-            student.birthdate = dt.strptime(request.form['birth_date'], '%Y-%m-%d')
+            student.birth_date = dt.strptime(request.form['birth_date'], '%Y-%m-%d')
             student.num_credits_completed = request.form['num_credits_completed']
             student.gpa = request.form['gpa']
             student.is_honors = True if 'is_honors' in request.form else False
@@ -118,4 +122,4 @@ def home():
 
 
 if __name__ == '__main__':
-    app.run(port = 5005)
+    app.run(port = 5005, debug=True)
