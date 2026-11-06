@@ -35,8 +35,10 @@ with app.app_context():
 
     # Initial loading of students
     students = [
-        {'first_name': 'Test', 'last_name': 'Student', 'email':'student@umd.edu',
-            'major_id': 3, 'birth_date': dt.strptime('2007-08-01', '%Y-%m-%d'), 'is_honors': 1}
+        {'first_name': 'Test', 'last_name': 'Student', 'email': 'student@umd.edu',
+         'major_id': 3, 'birth_date': dt.strptime('2007-08-01', '%Y-%m-%d'), 'is_honors': 1},
+        {'first_name': 'Deven', 'last_name': 'Patel', 'email': 'dpatel04@umd.edu',
+         'major_id': 3, 'birth_date': dt.strptime('2005-04-08', '%Y-%m-%d'), 'is_honors': 0}
     ]
 
     for each_student in students:
