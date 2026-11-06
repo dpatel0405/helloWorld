@@ -219,6 +219,12 @@ def page_not_found(e):
     flash(f'Sorry! You are trying to access a page that does not exist. Please contact support if this problem persists.', 'error')
     return render_template('404.html'), 404
 
+# Training (logged-in users with a role of MANAGER or ADMIN only)
+@app.route('/training')
+@login_required
+@role_required(['ADMIN', 'MANAGER'])
+def training():
+    return render_template('training.html')
 
 if __name__ == '__main__':
     app.run(debug=True, port=5008)
