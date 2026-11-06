@@ -1,0 +1,16 @@
+# Database files (rebuilt with create_db.py; never committed)
+instance/
+*.db
+*.sqlite3
+
+# Python virtual environment and cache files
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# PyCharm settings
+.idea/
+
+# Mac system files
+.DS_Store
